@@ -6,6 +6,10 @@
     "name": "Vincent DeFrancesco",
     "email": "vincent.defrancesco@chronicle.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vdefranc/slideshow"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jasmine": "^0.8.1",

@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Make Your Own Rankings</title>
+    <link rel="stylesheet" href="rankings.css">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-mocks.js"></script>
+    <script type="text/javascript" src ="jquery-1.11.1.min.js"></script>
+    <script src="rankings.js"></script>
+  </head>
+  <body>
+    <div class="bigContainer" ng-app="Rankings">
+      <h1>Article Headline</h1>
+      <h4>By: Herman Melville</h4>
+      <p>Consider the subtleness of the sea; how its most dreaded creatures glide under water, unapparent for the most part, and treacherously hidden beneath the loveliest tints of azure. Consider also the devilish brilliance and beauty of many of its most remorseless tribes, as the dainty embellished shape of many species of sharks. Consider, once more, the universal cannibalism of the sea; all whose creatures prey upon each other, carrying on eternal war since the world began.</p>
+      <h3 style="text-align: center; margin-bottom: 0.5em;">College Rankifier</h3>
+      <div id="mainRankingsContainer" ng-controller="RankingsController as ctrl">
+        <div id="leftLesser">
+          <h3>Options</h3>
+          <div id="optionsRankingsContainer" class="lesserContainer">
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.prestige}" name="rankingOption" ng-model="rankingsForm.prestige">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.prestige}" ng-click="changeState('prestige')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" /> <!-- &#2713; -->
+              </div>
+              <p>
+              <span>Prestige</span><br />
+              US News
+              </p>
+            </div>
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.international}" name="rankingOption" ng-model="rankingsForm.international">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.international}" ng-click="changeState('international')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Global Influence</span><br />
+              Shang Hai
+              </p>
+            </div>
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.roi}" name="rankingOption" ng-model="rankingsForm.roi">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.roi}" ng-click="changeState('roi')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Fat Paychecks</span><br />
+              Payscale
+              </p>
+            </div>
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.money}" name="rankingOption" ng-model="rankingsForm.money">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.money}" ng-click="changeState('money')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Money Stuff</span><br />
+              Money Magazine
+              </p>
+            </div>
+             <div class="rankingsOption" ng-class="{selected : rankingsForm.diversity}" name="rankingOption" ng-model="rankingsForm.diversity">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.diversity}" ng-click="changeState('diversity')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Social Impact</span><br />
+              Washington Monthly
+              </p>
+            </div>
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.forbes}" name="rankingOption" ng-model="rankingsForm.forbes">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.forbes}" ng-click="changeState('forbes')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Forbes</span><br />
+              Forbes
+              </p>
+            </div>
+            <div class="rankingsOption" ng-class="{selected : rankingsForm.party}" name="rankingOption" ng-model="rankingsForm.party">
+              <div class="check" ng-class="{undisplayCheck : !rankingsForm.party}" ng-click="changeState('party')">
+                <img src="http://www.chronicle.com/img/photos/biz/check3.png" />
+              </div>
+              <p>
+              <span>Party Scene</span><br />
+              Princeton Review
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="rightLesser">
+          <h3>Results</h3>
+          <div id="listRankingsContainer" class="lesserContainer">
+            <div class="rankListing" ng-repeat="result in results track by $index">
+              <div class="rankLabel"><p>{{$index + 1}}.&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+              <div><p>{{result.name}}</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+    </div>
+  </body>
+</html>

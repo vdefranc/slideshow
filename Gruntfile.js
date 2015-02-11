@@ -34,6 +34,28 @@ module.exports = function(grunt) {
 					'dist/css/rankings.css' : 'src/css/rankings.scss'
 				}
 			}
+		},
+	    open: { //not added to dependencies yet <<<<<<<<<<<<<<<<<<<<<<<<<<
+			server: {
+				path: 'http://localhost:<%= connect.options.port %>'
+			}
+   		},
+		connect: { //not added to dependencies yet <<<<<<<<<<<<<<<<<<<<<<<<<<
+			options: {
+					port: 9000,
+					// change this to '0.0.0.0' to access the server from outside
+					hostname: 'localhost'
+				},
+			livereload: {
+				options: {
+					middleware: function ( connect ) {
+						return [
+							lrSnippet,
+							mountFolder( connect, '.' )
+						];
+					}
+				}
+			}
 		}
 	});
 

@@ -9,11 +9,11 @@ module.exports = function(grunt) {
 			}
 	    },
 	    jshint: {
-	    	files: ['rankings.js', 'rankings-specs.js'],
+	    	files: ['src/js/**/*.js', 'src/js/*.js'],
 	      	options: {
 	        	globals: {
-	          		jQuery: true,
-	          		angular: true
+	          		//jQuery: true,
+	          		//angular: true
 	        	}
 	      	}
 	    },

@@ -22,9 +22,9 @@ module.exports = function(grunt) {
 			options : {
 			    specs : 'slideshow-specs.js',
 			    vendor: [
-					'angular.min.js',
-					'angular-mocks.js',
-					'jquery-1.11.1.min.js'
+					//'angular.min.js',
+					//'angular-mocks.js',
+					//'jquery-1.11.1.min.js'
 				]
 			}
 		},

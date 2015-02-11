@@ -9,7 +9,9 @@ var mountFolder = function ( connect, dir ) {
 module.exports = function(grunt) {
 	grunt.initConfig({
 	    watch: {
-	      files: ['src/js/*.js'],
+	      files: ['src/js/*.js',
+	      			'index.html'
+	      		],
 	      tasks: ['jshint', 'jasmine'],
 	      css: {
 				files: 'src/css/*.scss',

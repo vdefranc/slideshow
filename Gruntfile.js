@@ -1,10 +1,18 @@
+'use strict';
+
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require( 'connect-livereload' )({ port: LIVERELOAD_PORT });
+var mountFolder = function ( connect, dir ) {
+  return connect.static( require( 'path' ).resolve( dir ) );
+};
+
 module.exports = function(grunt) {
 	grunt.initConfig({
 	    watch: {
-	      files: ['*.js'],
+	      files: ['src/js/*.js'],
 	      tasks: ['jshint', 'jasmine'],
 	      css: {
-				files: '**/*.scss',
+				files: 'src/css/*.scss',
 				tasks: ['sass']
 			}
 	    },
@@ -31,7 +39,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'dist/css/rankings.css' : 'src/css/rankings.scss'
+					'dist/slideshow.css' : 'src/css/slideshow.scss'
 				}
 			}
 		},
@@ -63,8 +71,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
+	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	//grunt.loadNpmTasks('');
 
 	// Default task(s).
 	grunt.registerTask('default', ['watch']);
+	grunt.registerTask( 'server', ['connect:livereload', 'open', 'watch' ] );
+
+
 };

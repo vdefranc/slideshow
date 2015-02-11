@@ -13,6 +13,10 @@ module.exports = function(grunt) {
 					nospawn: true,
 					livereload: LIVERELOAD_PORT
 				},
+			css: {
+				files: 'src/css/*.scss',
+				tasks: ['sass']
+			},
 	    	
 	    	/*
 	    	files: ['src/js/*.js',

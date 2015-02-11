@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,IAAK;EACJ,gBAAgB,EAAE,MAAM",
+"sources": ["../src/css/slideshow.scss"],
 "names": [],
 "file": "slideshow.css"
 }

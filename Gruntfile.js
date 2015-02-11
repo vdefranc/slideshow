@@ -9,14 +9,32 @@ var mountFolder = function ( connect, dir ) {
 module.exports = function(grunt) {
 	grunt.initConfig({
 	    watch: {
-	      files: ['src/js/*.js',
+	    	options: {
+					nospawn: true,
+					livereload: LIVERELOAD_PORT
+				},
+	    	
+	    	/*
+	    	files: ['src/js/*.js',
 	      			'index.html'
 	      		],
-	      tasks: ['jshint', 'jasmine'],
-	      css: {
+	    	tasks: ['jshint', 'jasmine'],
+	     	css: {
 				files: 'src/css/*.scss',
 				tasks: ['sass']
-			}
+			},
+			js: {
+				files: 'src/js/*.js',
+				tasks: ['concat']
+			},
+			*/
+			livereload: {
+		        files: [
+		          'index.html',
+		          'src/**/*'
+		        ],
+		        tasks: [ 'build' ]
+		      }
 	    },
 	    jshint: {
 	    	files: ['src/js/**/*.js', 'src/js/*.js'],
@@ -28,14 +46,9 @@ module.exports = function(grunt) {
 	      	}
 	    },
 		jasmine : {
-			src : ['src/js/slideshow.js'],
+			src : ['dist/slideshow.js'],
 			options : {
-			    specs : 'slideshow-specs.js',
-			    vendor: [
-					//'angular.min.js',
-					//'angular-mocks.js',
-					//'jquery-1.11.1.min.js'
-				]
+			    specs : 'src/js/tests/slideshow-specs.js'
 			}
 		},
 		sass: {
@@ -43,6 +56,12 @@ module.exports = function(grunt) {
 				files: {
 					'dist/slideshow.css' : 'src/css/slideshow.scss'
 				}
+			}
+		},
+		concat: {
+			js: {
+				src: ['src/js/slideshow.js', 'src/js/second.js'],
+				dest: 'dist/slideshow.js'
 			}
 		},
 	    open: { //not added to dependencies yet <<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -66,7 +85,7 @@ module.exports = function(grunt) {
 					}
 				}
 			}
-		}
+		},
 	});
 
 	// Load the plugin that provides the "uglify" task.
@@ -76,11 +95,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 	//grunt.loadNpmTasks('');
 
 	// Default task(s).
-	grunt.registerTask('default', ['watch']);
-	grunt.registerTask( 'server', ['connect:livereload', 'open', 'watch' ] );
+	grunt.registerTask('build', [ 'jshint', 'concat', 'jasmine', 'sass' ]);
+	grunt.registerTask('server', ['connect:livereload', 'open', 'watch' ] );
+	grunt.registerTask('default', ['build']);
 
 
 };

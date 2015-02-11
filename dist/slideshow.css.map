@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACJ,gBAAgB,EAAC,GAAG",
+"sources": ["../src/css/slideshow.scss"],
+"names": [],
+"file": "slideshow.css"
+}

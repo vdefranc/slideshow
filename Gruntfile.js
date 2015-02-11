@@ -18,9 +18,9 @@ module.exports = function(grunt) {
 	      	}
 	    },
 		jasmine : {
-			src : ['rankings.js'],
+			src : ['src/js/slideshow.js'],
 			options : {
-			    specs : 'rankings-specs.js',
+			    specs : 'slideshow-specs.js',
 			    vendor: [
 					'angular.min.js',
 					'angular-mocks.js',
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'rankings.css' : 'rankings.scss'
+					'dist/css/rankings.css' : 'src/css/rankings.scss'
 				}
 			}
 		}

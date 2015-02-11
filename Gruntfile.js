@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 	//grunt.loadNpmTasks('');
 
 	// Default task(s).
-	grunt.registerTask('build', [ 'jshint', 'concat', 'jasmine', 'sass' ]);
+	grunt.registerTask('build', [ 'jshint', 'concat', 'sass' ]);
 	grunt.registerTask('server', ['connect:livereload', 'open', 'watch' ] );
 	grunt.registerTask('default', ['build']);
 

@@ -1,6 +1,10 @@
 {
-  "name": "vin-calculator",
-  "version": "0.1.0",
+  "name": "che-slideshow",
+  "version": "0.0.1",
+  "author": {
+    "name": "Vincent DeFrancesco",
+    "email": "vincent.defrancesco@chronicle.com"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jasmine": "^0.8.1",

@@ -3,7 +3,8 @@ body {
   border-right: 1px solid #ccc;
   margin: 0 auto;
   padding: 1em;
-  width: 700px; }
+  width: 60%;
+  max-width: 600px; }
 
 .che-slideshow {
   border: 1px solid purple;

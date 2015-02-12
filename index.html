@@ -9,17 +9,17 @@
   	<h1>Slideshow</h1>
   	<div class="che-slideshow">
   		<ol class="slideshow-indicator-container">
-  			<li class="slideshow-indicator active-indicator">
-  			</li>
   			<li class="slideshow-indicator">
   			</li>
-  			<li class="slideshow-indicator">
+  			<li class="slideshow-indicator inactive-indicator">
   			</li>
-  			<li class="slideshow-indicator">
+  			<li class="slideshow-indicator inactive-indicator">
+  			</li>
+  			<li class="slideshow-indicator inactive-indicator">
   			</li>
   		</ol>
-  		<img src="images/left-arrow.png" class="slideshow-left-control"/>
-		<img src="images/right-arrow.png" class="slideshow-right-control"/>
+  		<img src="images/left-arrow.png" class="slideshow-left-control" onclick="CHESLIDESHOW.prevSlide()" />
+		<img src="images/right-arrow.png" class="slideshow-right-control" onclick="CHESLIDESHOW.nextSlide()"/>
 
   		<div class="che-slideshow-slide">
   			<img src="http:////placehold.it/600x300" />

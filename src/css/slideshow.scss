@@ -18,7 +18,9 @@
 	}
 
 	&.active {}
-	&.inactive {}
+	&.inactive {
+		display: none;
+	}
 	&.activating {}
 	&.deactivating {}
 }

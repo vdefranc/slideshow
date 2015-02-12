@@ -9,6 +9,8 @@
   text-align: center; }
 .che-slideshow-slide img {
   width: 100%; }
+.che-slideshow-slide.inactive {
+  display: none; }
 
 /* Controls */
 .slideshow-left-control {

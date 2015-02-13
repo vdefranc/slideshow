@@ -18,6 +18,7 @@
 
 .che-slideshow-slide {
 	width: 100%;
+
 	-webkit-transition: 0.7s ease-in-out;
     -moz-transition: 0.7s ease-in-out;
     -o-transition: 0.7s ease-in-out;
@@ -94,7 +95,6 @@
 /* Indicators */
 
 .slideshow-indicator-container {
-		cursor: pointer;
 		left: 50%;
 		list-style: none;
 		margin-left: -30%;

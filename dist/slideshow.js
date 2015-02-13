@@ -72,16 +72,6 @@ var CHESLIDESHOW = (function () {
 					}, 1);
 			    }, 700);
 			}, 1);
-		},
-		selectSlide: function (slide) {
-			
-			slideSelector[currentSlide].classList.add("inactive");
-			indicatorSelector[currentSlide].classList.add("inactive-indicator");
-		
-			slideSelector[slide].classList.remove("inactive");
-			indicatorSelector[slide].classList.remove("inactive-indicator");
-
-			currentSlide = slide;
 		}
 	};
 })();

@@ -17,7 +17,7 @@
 } 
 
 .che-slideshow-slide {
-
+	width: 100%;
 	-webkit-transition: 0.7s ease-in-out;
     -moz-transition: 0.7s ease-in-out;
     -o-transition: 0.7s ease-in-out;
@@ -51,14 +51,10 @@
 	}
 
 	&.activating-from-left {
-		height: 100%;
-		width: 100%;
 		@include transform;
 	}
 
 	&.activating-from-right {
-		height: 100%;
-		width: 100%;
 		@include transform('-');
 	}
 

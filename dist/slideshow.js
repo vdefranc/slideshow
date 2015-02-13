@@ -16,31 +16,28 @@ var CHESLIDESHOW = (function () {
 
 			slideSelector[currentSlide].classList.remove("trans-none");
 
-			slideSelector[nextSlide].classList.add("left-position");
+			slideSelector[nextSlide].classList.add("right-position");
 			slideSelector[nextSlide].classList.remove("inactive");
 
 			indicatorSelector[currentSlide].classList.add("inactive-indicator");
 			indicatorSelector[nextSlide].classList.remove("inactive-indicator");
 			
 			setTimeout(function() {
-				slideSelector[nextSlide].classList.add("activating-from-left");
-				slideSelector[currentSlide].classList.add("deactivating-to-right");
+				slideSelector[nextSlide].classList.add("activating-from-right");
+				slideSelector[currentSlide].classList.add("deactivating-to-left");
 
 				setTimeout(function() {
 					slideSelector[currentSlide].classList.add("inactive");
-					slideSelector[currentSlide].classList.remove("deactivating-to-right");
+					slideSelector[currentSlide].classList.remove("deactivating-to-left");
 					slideSelector[nextSlide].classList.add("trans-none");
-					slideSelector[nextSlide].classList.remove("activating-from-left");
-					slideSelector[nextSlide].classList.remove("left-position");
+					slideSelector[nextSlide].classList.remove("activating-from-right");
+					slideSelector[nextSlide].classList.remove("right-position");
 					setTimeout(function() {
 						running = false;
 						currentSlide = nextSlide;
 					}, 1);
-			    }, 1000);
-
-
+			    }, 700);
 			}, 1);
-
 		},
 		prevSlide: function () {
 			if (running) {
@@ -73,11 +70,8 @@ var CHESLIDESHOW = (function () {
 						running = false;
 						currentSlide = prevSlide;
 					}, 1);
-			    }, 1000);
-
-
+			    }, 700);
 			}, 1);
-			
 		},
 		selectSlide: function (slide) {
 			
@@ -88,7 +82,6 @@ var CHESLIDESHOW = (function () {
 			indicatorSelector[slide].classList.remove("inactive-indicator");
 
 			currentSlide = slide;
-			
 		}
 	};
 })();

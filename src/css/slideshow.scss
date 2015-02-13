@@ -7,17 +7,7 @@
 /* slide styles and transformation */
 
 @mixin transform($posOrNeg: '') {
-	$translate-statement: translate( #{$posOrNeg}99.5%, 0 );
-
-	-webkit-transform: $translate-statement;
-    -moz-transform: $translate-statement;
-    -o-transform: $translate-statement;
-    -ms-transform: $translate-statement;
-    transform: $translate-statement;
-} 
-
-@mixin transform-neg {
-	$translate-statement: translate( -99.5%, 0 );
+	$translate-statement: translate( #{$posOrNeg}100%, 0 );
 
 	-webkit-transform: $translate-statement;
     -moz-transform: $translate-statement;
@@ -28,10 +18,10 @@
 
 .che-slideshow-slide {
 
-	-webkit-transition: 1s ease-in-out;
-    -moz-transition: 1s ease-in-out;
-    -o-transition: 1s ease-in-out;
-    transition: 1s ease-in-out;
+	-webkit-transition: 0.7s ease-in-out;
+    -moz-transition: 0.7s ease-in-out;
+    -o-transition: 0.7s ease-in-out;
+    transition: 0.7s ease-in-out;
 
 	.che-slideshow-caption {
 		bottom: 1em;
@@ -61,15 +51,19 @@
 	}
 
 	&.activating-from-left {
+		height: 100%;
+		width: 100%;
 		@include transform;
 	}
 
 	&.activating-from-right {
-		@include transform-neg;
+		height: 100%;
+		width: 100%;
+		@include transform('-');
 	}
 
 	&.deactivating-to-left {
-		@include transform-neg;
+		@include transform('-');
 	}
 
 	&.deactivating-to-right {

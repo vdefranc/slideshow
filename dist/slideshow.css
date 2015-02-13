@@ -4,10 +4,10 @@
 
 /* slide styles and transformation */
 .che-slideshow-slide {
-  -webkit-transition: 1s ease-in-out;
-  -moz-transition: 1s ease-in-out;
-  -o-transition: 1s ease-in-out;
-  transition: 1s ease-in-out; }
+  -webkit-transition: 0.7s ease-in-out;
+  -moz-transition: 0.7s ease-in-out;
+  -o-transition: 0.7s ease-in-out;
+  transition: 0.7s ease-in-out; }
   .che-slideshow-slide .che-slideshow-caption {
     bottom: 1em;
     position: absolute;
@@ -26,29 +26,33 @@
     top: 0;
     left: 100%; }
   .che-slideshow-slide.activating-from-left {
-    -webkit-transform: translate(99.5%, 0);
-    -moz-transform: translate(99.5%, 0);
-    -o-transform: translate(99.5%, 0);
-    -ms-transform: translate(99.5%, 0);
-    transform: translate(99.5%, 0); }
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0); }
   .che-slideshow-slide.activating-from-right {
-    -webkit-transform: translate(-99.5%, 0);
-    -moz-transform: translate(-99.5%, 0);
-    -o-transform: translate(-99.5%, 0);
-    -ms-transform: translate(-99.5%, 0);
-    transform: translate(-99.5%, 0); }
+    height: 100%;
+    width: 100%;
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -o-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0); }
   .che-slideshow-slide.deactivating-to-left {
-    -webkit-transform: translate(-99.5%, 0);
-    -moz-transform: translate(-99.5%, 0);
-    -o-transform: translate(-99.5%, 0);
-    -ms-transform: translate(-99.5%, 0);
-    transform: translate(-99.5%, 0); }
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -o-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0); }
   .che-slideshow-slide.deactivating-to-right {
-    -webkit-transform: translate(99.5%, 0);
-    -moz-transform: translate(99.5%, 0);
-    -o-transform: translate(99.5%, 0);
-    -ms-transform: translate(99.5%, 0);
-    transform: translate(99.5%, 0); }
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0); }
   .che-slideshow-slide.trans-none {
     transition: none; }
 

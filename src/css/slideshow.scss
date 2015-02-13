@@ -7,7 +7,7 @@
 /* slide styles and transformation */
 
 @mixin transform($posOrNeg: '') {
-	$translate-statement: translate( #{$posOrNeg}100%, 0 );
+	$translate-statement: translate( #{$posOrNeg}99.5%, 0 );
 
 	-webkit-transform: $translate-statement;
     -moz-transform: $translate-statement;
@@ -37,11 +37,17 @@
 	&.inactive {
 		display: none;
 	}
+
 	&.left-position {
 		position: absolute;
 		top: 0;
 		left: -100%;
-		display: block;
+	}
+
+	&.right-position {
+		position: absolute;
+		top: 0;
+		left: 100%;
 	}
 
 	&.activating-from-left {
@@ -49,6 +55,9 @@
 	}
 
 	&.activating-from-right {
+		position: absolute;
+		top: 0;
+		left: 100%;
 		@include transform('-');
 	}
 
@@ -58,6 +67,9 @@
 
 	&.deactivating-to-right {
 		@include transform;
+	}
+	&.trans-none {
+		transition: none;
 	}
 }
 

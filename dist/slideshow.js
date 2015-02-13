@@ -33,16 +33,17 @@ var CHESLIDESHOW = (function () {
 					slideSelector[nextSlide].classList.remove("activating-from-right");
 					slideSelector[nextSlide].classList.remove("right-position");
 					setTimeout(function() {
-						running = false;
 						currentSlide = nextSlide;
+						running = false;
 					}, 1);
 			    }, 700);
 			}, 1);
 		},
 		prevSlide: function () {
 			if (running) {
-				return;
+				return false;
 			}
+			
 			running = true;
 			
 			var prevSlide = slideSelector[currentSlide - 1] === undefined ?
@@ -67,8 +68,8 @@ var CHESLIDESHOW = (function () {
 					slideSelector[prevSlide].classList.remove("activating-from-left");
 					slideSelector[prevSlide].classList.remove("left-position");
 					setTimeout(function() {
-						running = false;
 						currentSlide = prevSlide;
+						running = false;			
 					}, 1);
 			    }, 700);
 			}, 1);

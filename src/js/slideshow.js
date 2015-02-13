@@ -41,17 +41,6 @@ var CHESLIDESHOW = (function () {
 
 			}, 1);
 
-			//slideSelector[currentSlide].classList.add("inactive");
-			//slideSelector[nextSlide].classList.remove("inactive");
-
-
-			//slideSelector[currentSlide].classList.add("inactive");
-			//indicatorSelector[currentSlide].classList.add("inactive-indicator");
-		
-			//slideSelector[nextSlide].classList.remove("inactive");
-			//indicatorSelector[nextSlide].classList.remove("inactive-indicator");
-
-			//currentSlide = nextSlide;
 		},
 		prevSlide: function () {
 			if (running) {

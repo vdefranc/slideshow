@@ -19,7 +19,7 @@ var CHESLIDESHOW = (function () {
 
 				setTimeout(function() {
 					slideSelector[currentSlide].classList.add("inactive");
-					//slideSelector[currentSlide].classList.remove("deactivating-to-right");
+					slideSelector[currentSlide].classList.remove("deactivating-to-right");
 					slideSelector[nextSlide].classList.add("trans-none");
 					slideSelector[nextSlide].classList.remove("activating-from-left");
 					slideSelector[nextSlide].classList.remove("left-position");

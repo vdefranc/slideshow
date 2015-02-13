@@ -1,10 +1,17 @@
 var CHESLIDESHOW = (function () {
 	var currentSlide = 0;
+	var running = false;
 	var slideSelector = document.getElementsByClassName('che-slideshow-slide');
 	var indicatorSelector = document.getElementsByClassName('slideshow-indicator');
 
 	return {
 		nextSlide: function () {
+			if (running) {
+				return false;
+			}
+
+			running = true;
+
 			var nextSlide = slideSelector[currentSlide + 1] === undefined ?
 				0 :  currentSlide + 1;
 
@@ -24,6 +31,7 @@ var CHESLIDESHOW = (function () {
 					slideSelector[nextSlide].classList.remove("activating-from-left");
 					slideSelector[nextSlide].classList.remove("left-position");
 					setTimeout(function() {
+						running = false;
 						currentSlide = nextSlide;
 					}, 1);
 			    }, 1000);

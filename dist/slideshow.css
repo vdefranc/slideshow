@@ -1,5 +1,4 @@
 .che-slideshow {
-  border: 1px solid black;
   overflow: hidden;
   position: relative; }
 
@@ -33,9 +32,6 @@
     -ms-transform: translate(99.5%, 0);
     transform: translate(99.5%, 0); }
   .che-slideshow-slide.activating-from-right {
-    position: absolute;
-    top: 0;
-    left: 100%;
     -webkit-transform: translate(-99.5%, 0);
     -moz-transform: translate(-99.5%, 0);
     -o-transform: translate(-99.5%, 0);

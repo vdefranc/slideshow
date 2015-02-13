@@ -1,5 +1,5 @@
 .che-slideshow {
-	border: 1px solid black;
+	//border: 1px solid black;
 	overflow: hidden;
 	position: relative;
 }
@@ -8,6 +8,16 @@
 
 @mixin transform($posOrNeg: '') {
 	$translate-statement: translate( #{$posOrNeg}99.5%, 0 );
+
+	-webkit-transform: $translate-statement;
+    -moz-transform: $translate-statement;
+    -o-transform: $translate-statement;
+    -ms-transform: $translate-statement;
+    transform: $translate-statement;
+} 
+
+@mixin transform-neg {
+	$translate-statement: translate( -99.5%, 0 );
 
 	-webkit-transform: $translate-statement;
     -moz-transform: $translate-statement;
@@ -55,14 +65,11 @@
 	}
 
 	&.activating-from-right {
-		position: absolute;
-		top: 0;
-		left: 100%;
-		@include transform('-');
+		@include transform-neg;
 	}
 
 	&.deactivating-to-left {
-		@include transform('-');
+		@include transform-neg;
 	}
 
 	&.deactivating-to-right {

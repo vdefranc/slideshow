@@ -8,6 +8,15 @@ var CHESLIDESHOW = (function () {
 			var nextSlide = slideSelector[currentSlide + 1] === undefined ?
 				0 :  currentSlide + 1;
 
+			//slideSelector[currentSlide].classList.add("inactive");
+			//slideSelector[currentSlide].classList.remove("deactivating-to-right");
+			//slideSelector[nextSlide].classList.remove("inactive");
+			setTimeout(function() {
+			    setTimeout(function() {
+			    }, 1000);
+			}, 1);
+
+
 			slideSelector[currentSlide].classList.add("inactive");
 			indicatorSelector[currentSlide].classList.add("inactive-indicator");
 		
@@ -15,9 +24,10 @@ var CHESLIDESHOW = (function () {
 			indicatorSelector[nextSlide].classList.remove("inactive-indicator");
 
 			currentSlide = nextSlide;
+
 		},
 		prevSlide: function () {
-
+			
 			var prevSlide = slideSelector[currentSlide - 1] === undefined ?
 				slideSelector.length - 1 :  currentSlide - 1;
 
@@ -28,17 +38,18 @@ var CHESLIDESHOW = (function () {
 			indicatorSelector[prevSlide].classList.remove("inactive-indicator");
 
 			currentSlide = prevSlide;
+			
 		},
 		selectSlide: function (slide) {
-
+			
 			slideSelector[currentSlide].classList.add("inactive");
 			indicatorSelector[currentSlide].classList.add("inactive-indicator");
 		
 			slideSelector[slide].classList.remove("inactive");
 			indicatorSelector[slide].classList.remove("inactive-indicator");
 
-
 			currentSlide = slide;
+			
 		}
 	};
 })();

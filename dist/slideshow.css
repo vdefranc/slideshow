@@ -1,37 +1,75 @@
 .che-slideshow {
   border: 1px solid black;
+  overflow: hidden;
   position: relative; }
 
-.che-slideshow-slide .che-slideshow-caption {
-  bottom: 1em;
-  position: absolute;
-  width: 100%;
-  text-align: center; }
-.che-slideshow-slide img {
-  width: 100%; }
-.che-slideshow-slide.inactive {
-  display: none; }
+/* slide styles and transformation */
+.che-slideshow-slide {
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out; }
+  .che-slideshow-slide .che-slideshow-caption {
+    bottom: 1em;
+    position: absolute;
+    width: 100%;
+    text-align: center; }
+  .che-slideshow-slide img {
+    width: 100%; }
+  .che-slideshow-slide.inactive {
+    display: none; }
+  .che-slideshow-slide.left-position {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: block; }
+  .che-slideshow-slide.activating-from-left {
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0); }
+  .che-slideshow-slide.activating-from-right {
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -o-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0); }
+  .che-slideshow-slide.deactivating-to-left {
+    -webkit-transform: translate(-100%, 0);
+    -moz-transform: translate(-100%, 0);
+    -o-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0); }
+  .che-slideshow-slide.deactivating-to-right {
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -o-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0); }
 
 /* Controls */
 .slideshow-left-control {
+  cursor: pointer;
   left: 0;
   height: 60%;
   margin-top: -15%;
   opacity: 0.3;
   position: absolute;
   top: 50%;
-  cursor: pointer; }
+  z-index: 1; }
   .slideshow-left-control:hover {
     opacity: 0.7; }
 
 .slideshow-right-control {
+  cursor: pointer;
   right: 0;
   height: 60%;
   margin-top: -15%;
   opacity: 0.3;
   position: absolute;
   top: 50%;
-  cursor: pointer; }
+  z-index: 1; }
   .slideshow-right-control:hover {
     opacity: 0.7; }
 

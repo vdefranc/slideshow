@@ -37,7 +37,7 @@ var CHESLIDESHOW = (function () {
 						running = false;
 					}, 1);
 			    }, 700);
-			}, 1);
+			}, 5);
 		},
 		prevSlide: function () {
 			if (running) {

@@ -14,24 +14,27 @@ var CHESLIDESHOW = (function () {
 			var nextSlide = slideSelector[currentSlide + 1] === undefined ?
 				0 :  currentSlide + 1;
 
-			slideSelector[currentSlide].classList.remove("trans-none");
+			var currentSlideSelector = slideSelector[currentSlide];
+			var nextSlideSelector = slideSelector[nextSlide];
 
-			slideSelector[nextSlide].classList.add("right-position");
-			slideSelector[nextSlide].classList.remove("inactive");
+			currentSlideSelector.classList.remove("trans-none");
+
+			nextSlideSelector.classList.add("right-position");
+			nextSlideSelector.classList.remove("inactive");
 
 			indicatorSelector[currentSlide].classList.add("inactive-indicator");
 			indicatorSelector[nextSlide].classList.remove("inactive-indicator");
 			
 			setTimeout(function() {
-				slideSelector[nextSlide].classList.add("activating-from-right");
-				slideSelector[currentSlide].classList.add("deactivating-to-left");
+				nextSlideSelector.classList.add("activating-from-right");
+				currentSlideSelector.classList.add("deactivating-to-left");
 
 				setTimeout(function() {
-					slideSelector[currentSlide].classList.add("inactive");
-					slideSelector[currentSlide].classList.remove("deactivating-to-left");
-					slideSelector[nextSlide].classList.add("trans-none");
-					slideSelector[nextSlide].classList.remove("activating-from-right");
-					slideSelector[nextSlide].classList.remove("right-position");
+					currentSlideSelector.classList.add("inactive");
+					currentSlideSelector.classList.remove("deactivating-to-left");
+					nextSlideSelector.classList.add("trans-none");
+					nextSlideSelector.classList.remove("activating-from-right");
+					nextSlideSelector.classList.remove("right-position");
 					setTimeout(function() {
 						currentSlide = nextSlide;
 						running = false;
@@ -46,27 +49,29 @@ var CHESLIDESHOW = (function () {
 			
 			running = true;
 			
+			var currentSlideSelector = slideSelector[currentSlide];
+			
 			var prevSlide = slideSelector[currentSlide - 1] === undefined ?
 				slideSelector.length - 1 :  currentSlide - 1;
+			var prevSlideSelector = slideSelector[prevSlide];
+			currentSlideSelector.classList.remove("trans-none");
 
-			slideSelector[currentSlide].classList.remove("trans-none");
+			prevSlideSelector.classList.add("left-position");
+			prevSlideSelector.classList.remove("inactive");
 
-			slideSelector[prevSlide].classList.add("left-position");
-			slideSelector[prevSlide].classList.remove("inactive");
-
-			indicatorSelector[currentSlide].classList.add("inactive-indicator");
-			indicatorSelector[prevSlide].classList.remove("inactive-indicator");
+			currentSlideSelector.classList.add("inactive-indicator");
+			prevSlideSelector.classList.remove("inactive-indicator");
 			
 			setTimeout(function() {
-				slideSelector[prevSlide].classList.add("activating-from-left");
-				slideSelector[currentSlide].classList.add("deactivating-to-right");
+				prevSlideSelector.classList.add("activating-from-left");
+				currentSlideSelector.classList.add("deactivating-to-right");
 
 				setTimeout(function() {
-					slideSelector[currentSlide].classList.add("inactive");
-					slideSelector[currentSlide].classList.remove("deactivating-to-right");
-					slideSelector[prevSlide].classList.add("trans-none");
-					slideSelector[prevSlide].classList.remove("activating-from-left");
-					slideSelector[prevSlide].classList.remove("left-position");
+					currentSlideSelector.classList.add("inactive");
+					currentSlideSelector.classList.remove("deactivating-to-right");
+					prevSlideSelector.classList.add("trans-none");
+					prevSlideSelector.classList.remove("activating-from-left");
+					prevSlideSelector.classList.remove("left-position");
 					setTimeout(function() {
 						currentSlide = prevSlide;
 						running = false;			

@@ -1,8 +1,8 @@
 var CHESLIDESHOW = (function () {
-	var currentSlide = 0;
-	var running = false;
-	var slideSelector = document.getElementsByClassName('che-slideshow-slide');
-	var indicatorSelector = document.getElementsByClassName('slideshow-indicator');
+	var currentSlide = 0,
+		running = false,
+	 	slideSelector = document.getElementsByClassName('che-slideshow-slide'),
+		indicatorSelector = document.getElementsByClassName('slideshow-indicator');
 
 	return {
 		nextSlide: function () {
@@ -12,10 +12,10 @@ var CHESLIDESHOW = (function () {
 			running = true;
 
 			var nextSlide = slideSelector[currentSlide + 1] === undefined ?
-				0 :  currentSlide + 1;
+				0 :  currentSlide + 1,
 
-			var currentSlideSelector = slideSelector[currentSlide];
-			var nextSlideSelector = slideSelector[nextSlide];
+				currentSlideSelector = slideSelector[currentSlide],
+				nextSlideSelector = slideSelector[nextSlide];
 
 			currentSlideSelector.classList.remove("trans-none");
 
@@ -49,18 +49,19 @@ var CHESLIDESHOW = (function () {
 			
 			running = true;
 			
-			var currentSlideSelector = slideSelector[currentSlide];
-			
 			var prevSlide = slideSelector[currentSlide - 1] === undefined ?
-				slideSelector.length - 1 :  currentSlide - 1;
-			var prevSlideSelector = slideSelector[prevSlide];
+				slideSelector.length - 1 :  currentSlide - 1,
+				prevSlideSelector = slideSelector[prevSlide],
+				currentSlideSelector = slideSelector[currentSlide];
+
+
 			currentSlideSelector.classList.remove("trans-none");
 
 			prevSlideSelector.classList.add("left-position");
 			prevSlideSelector.classList.remove("inactive");
 
-			currentSlideSelector.classList.add("inactive-indicator");
-			prevSlideSelector.classList.remove("inactive-indicator");
+			indicatorSelector[currentSlide].classList.add("inactive-indicator");
+			indicatorSelector[prevSlide].classList.remove("inactive-indicator");
 			
 			setTimeout(function() {
 				prevSlideSelector.classList.add("activating-from-left");

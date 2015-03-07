@@ -19,10 +19,7 @@
 .che-slideshow-slide {
 	width: 100%;
 
-	-webkit-transition: 0.7s ease-in-out;
-    -moz-transition: 0.7s ease-in-out;
-    -o-transition: 0.7s ease-in-out;
-    transition: 0.7s ease-in-out;
+	
 
 	.che-slideshow-caption {
 		bottom: 1em;
@@ -41,34 +38,17 @@
 
 	&.left-position {
 		top: 0;
-		left: -100%;
+		margin-left: -100%;
 		position: absolute;
 	}
 
 	&.right-position {
 		top: 0;
-		left: 100%;
+		margin-right: -100%;
 		position: absolute;
 	}
 
-	&.activating-from-left {
-		@include transform;
-	}
 
-	&.activating-from-right {
-		@include transform('-');
-	}
-
-	&.deactivating-to-left {
-		@include transform('-');
-	}
-
-	&.deactivating-to-right {
-		@include transform;
-	}
-	&.trans-none {
-		transition: none;
-	}
 }
 
 /* controls */

@@ -34,6 +34,19 @@ var CHESLIDESHOW = (function () {
 		animate(currentSlide);
 	}
 
+	// defines target slides according to direction of animation 
+	function setTargets() {
+		// get the index of the next slide. hard reset to 0 or numSlides (-1) so slideshow can loop back
+		if (mode === "prev") {
+			newSlideIndex = slideSelector[currentSlideIndex - 1] === undefined ? (numSlides - 1) : currentSlideIndex - 1;
+		} else {
+			newSlideIndex = slideSelector[currentSlideIndex + 1] === undefined ? 0 : currentSlideIndex + 1;
+		}
+
+		currentSlide = slideSelector[currentSlideIndex];
+		newSlide = slideSelector[newSlideIndex];
+	}
+
 	function animate (slide) {
 		var i = 0;
 
@@ -57,19 +70,6 @@ var CHESLIDESHOW = (function () {
 			currentSlideIndex = newSlideIndex;	
 			running = false;
 		}
-	}
-
-	// defines target slides according to direction of animation 
-	function setTargets() {
-		// get the index of the next slide. hard reset to 0 or numSlides (-1) so slideshow can loop back
-		if (mode === "prev") {
-			newSlideIndex = slideSelector[currentSlideIndex - 1] === undefined ? (numSlides - 1) : currentSlideIndex - 1;
-		} else {
-			newSlideIndex = slideSelector[currentSlideIndex + 1] === undefined ? 0 : currentSlideIndex + 1;
-		}
-
-		currentSlide = slideSelector[currentSlideIndex];
-		newSlide = slideSelector[newSlideIndex];
 	}
 
 	window.onload = setContainerSize;

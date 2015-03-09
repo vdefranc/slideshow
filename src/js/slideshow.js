@@ -15,7 +15,8 @@ var CHESLIDESHOW = (function () {
 		}
 		running = true;
 
-		//define target slides
+		//define target slides factoring in passed-in mode argument
+		mode = newMode;
 		setTargets(newMode);
 
 		// set indicators to next state
@@ -59,9 +60,7 @@ var CHESLIDESHOW = (function () {
 	}
 
 	// defines target slides according to direction of animation 
-	function setTargets(newMode) {
-		mode = newMode;
-
+	function setTargets() {
 		// get the index of the next slide. hard reset to 0 or numSlides (-1) so slideshow can loop back
 		if (mode === "prev") {
 			newSlideIndex = slideSelector[currentSlideIndex - 1] === undefined ? (numSlides - 1) : currentSlideIndex - 1;

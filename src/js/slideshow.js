@@ -9,15 +9,20 @@ var CHESLIDESHOW = (function () {
 	// var next = function () {};
 	// var prev = function () {};
 
-	var animateSlides = function (newSlide, currentSlide, fromDirection, newSlideIndex) {
-		var notDirection = fromDirection === 'left' ? 'right' : 'left';
+	var animateSlides = function (newSlide, currentSlide, prevOrNext, newSlideIndex) {
+		var notDirection = prevOrNext === 'prev' ? 'next' : 'prev';
+		
 		var animate = function(slideParameter) {
 			var slide = slideParameter;
 			var i = 0;
 
 
 			var animationInt = setInterval(function(){
-				slide.style[fromDirection] = ( parseInt(slide.style[fromDirection]) + 1 ) + "%";
+				if (prevOrNext === "prev") {
+					slide.style.left = ( parseInt(slide.style.left) + 1 ) + "%";
+				} else {
+					slide.style.left = ( parseInt(slide.style.left) - 1 ) + "%";
+				}
 				i++;
 
 				if(i >= 100) {
@@ -27,7 +32,7 @@ var CHESLIDESHOW = (function () {
 
 			var stopAnimation = function () {
 				currentSlide.classList.add('inactive');
-				newSlide.style[fromDirection] = '0%';
+				newSlide.style.left = '0%';
 				clearInterval(animationInt);
 				running = false;
 				//currentSlide = newSlide;
@@ -40,13 +45,18 @@ var CHESLIDESHOW = (function () {
 
 		};
 
-
-
 		//RUNS BEFORE ABOVE FUNCTIONS inside animateSlides
-		newSlide.style[fromDirection] = '-100%';
+
+		if (prevOrNext === "prev") {
+			newSlide.style.left = '-100%';
+			currentSlide.style.left = '0%';
+		} else {
+			newSlide.style.left = '100%';
+			currentSlide.style.left = '0%';
+		}
+
 		newSlide.classList.remove("inactive");
-		currentSlide.style[fromDirection] = '0%';
-		
+	
 		animate(newSlide);
 		animate(currentSlide);
 
@@ -68,7 +78,7 @@ var CHESLIDESHOW = (function () {
 				indicatorSelector[currentSlideIndex].classList.add('inactive-indicator');
 				indicatorSelector[newSlideIndex].classList.remove('inactive-indicator');
 
-				animateSlides(newSlide, currentSlide, 'right', newSlideIndex);
+				animateSlides(newSlide, currentSlide, 'next', newSlideIndex);
 		},
 		prevSlide: function () {
 			if (running) {
@@ -88,7 +98,7 @@ var CHESLIDESHOW = (function () {
 				indicatorSelector[currentSlideIndex].classList.add('inactive-indicator');
 				indicatorSelector[newSlideIndex].classList.remove('inactive-indicator');
 
-				animateSlides(newSlide, currentSlide, 'left', newSlideIndex);
+				animateSlides(newSlide, currentSlide, 'prev', newSlideIndex);
 		}
 	};
 })();

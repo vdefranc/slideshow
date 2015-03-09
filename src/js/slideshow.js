@@ -3,7 +3,6 @@ var CHESLIDESHOW = (function () {
 		running = false,
 	 	slideSelector = document.getElementsByClassName('che-slideshow-slide'),
 		indicatorSelector = document.getElementsByClassName('slideshow-indicator'),
-		prevOrNext,
 		currentSlide,
 		mode,
 		newSlide;
@@ -48,7 +47,6 @@ var CHESLIDESHOW = (function () {
 			currentSlideIndex = newSlideIndex;	
 			running = false;
 		}
-
 	}
 
 	function setTargets(newMode) {
@@ -56,13 +54,20 @@ var CHESLIDESHOW = (function () {
 
 		if (mode === "prev") {
 			newSlideIndex = slideSelector[currentSlideIndex - 1] === undefined ? 3 :  currentSlideIndex - 1;
-			currentSlide = slideSelector[currentSlideIndex];
-			newSlide = slideSelector[newSlideIndex];
 		} else {
 			newSlideIndex = slideSelector[currentSlideIndex + 1] === undefined ? 0 :  currentSlideIndex + 1;
-			currentSlide = slideSelector[currentSlideIndex];
-			newSlide = slideSelector[newSlideIndex];
 		}
+
+		currentSlide = slideSelector[currentSlideIndex];
+		newSlide = slideSelector[newSlideIndex];
+	}
+
+	window.onload = setContainerSize;
+	window.onresize = setContainerSize;
+
+	function setContainerSize() {
+		var container = document.getElementsByClassName('che-slideshow')[0];
+		container.style.height = getComputedStyle(slideSelector[currentSlideIndex]).height;
 	}
 
 	return {

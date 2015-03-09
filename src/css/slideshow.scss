@@ -1,10 +1,6 @@
 .che-slideshow {
-	//border: 1px solid black;
 	overflow: hidden;
 	position: relative;
-
-	//temp
-	height: 300px;
 }
 
 .che-slideshow-slide {
@@ -12,7 +8,6 @@
 	top: 0;
 	position: absolute;
 	
-
 	.che-slideshow-caption {
 		bottom: 1em;
 		position: absolute;
@@ -38,12 +33,9 @@
 		right: -100%;
 		position: absolute;
 	}
-
-
 }
 
 /* controls */
-
 @mixin arrow( $direction ) {
 	#{ $direction }: 0;
 	height: 60%;
@@ -79,27 +71,26 @@
 /* indicators */
 
 .slideshow-indicator-container {
-		left: 50%;
-		list-style: none;
-		margin-left: -30%;
-		padding-left: 0;
-		position: absolute;
-		text-align: center;
-		top: -5px;
-		width: 60%;
-		z-index: 15;
+	left: 50%;
+	list-style: none;
+	margin-left: -30%;
+	padding-left: 0;
+	position: absolute;
+	text-align: center;
+	top: -5px;
+	width: 60%;
+	z-index: 15;
 
-
-		.slideshow-indicator {
-			background-color: transparent;
-			border: 1px solid #fff;
-			border-radius: 5px;
-			display: inline-block;
-			height: 10px;
-			width: 10px;
-			
-			&.inactive-indicator {
-				background-color: #fff;
-			}
+	.slideshow-indicator {
+		background-color: transparent;
+		border: 1px solid #fff;
+		border-radius: 5px;
+		display: inline-block;
+		height: 10px;
+		width: 10px;
+		
+		&.inactive-indicator {
+			background-color: #fff;
 		}
+	}
 }

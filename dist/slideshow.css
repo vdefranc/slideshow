@@ -1,7 +1,6 @@
 .che-slideshow {
   overflow: hidden;
-  position: relative;
-  height: 300px; }
+  position: relative; }
 
 .che-slideshow-slide {
   width: 100%;

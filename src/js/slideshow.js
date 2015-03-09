@@ -1,8 +1,56 @@
 var CHESLIDESHOW = (function () {
-	var currentSlide = 0,
+	var currentSlideIndex = 0,
 		running = false,
 	 	slideSelector = document.getElementsByClassName('che-slideshow-slide'),
-		indicatorSelector = document.getElementsByClassName('slideshow-indicator');
+		indicatorSelector = document.getElementsByClassName('slideshow-indicator'),
+		currentSlide,
+		newSlide;
+
+	// var next = function () {};
+	// var prev = function () {};
+
+	var animateSlides = function (newSlide, currentSlide, fromDirection, newSlideIndex) {
+		var notDirection = fromDirection === 'left' ? 'right' : 'left';
+		var animate = function(slideParameter) {
+			var slide = slideParameter;
+			var i = 0;
+
+
+			var animationInt = setInterval(function(){
+				slide.style[fromDirection] = ( parseInt(slide.style[fromDirection]) + 1 ) + "%";
+				i++;
+
+				if(i >= 100) {
+					stopAnimation();
+				}
+			},10);
+
+			var stopAnimation = function () {
+				currentSlide.classList.add('inactive');
+				newSlide.style[fromDirection] = '0%';
+				clearInterval(animationInt);
+				running = false;
+				//currentSlide = newSlide;
+				currentSlideIndex = newSlideIndex;
+				console.log("currentSlideIndex: " + currentSlideIndex);
+				console.log("currentSlide: " + currentSlide);
+				console.log("newSlide: " + newSlide);
+				
+			};
+
+		};
+
+
+
+		//RUNS BEFORE ABOVE FUNCTIONS inside animateSlides
+		newSlide.style[fromDirection] = '-100%';
+		newSlide.classList.remove("inactive");
+		currentSlide.style[fromDirection] = '0%';
+		
+		animate(newSlide);
+		animate(currentSlide);
+
+	};
 
 	return {
 		nextSlide: function () {
@@ -11,36 +59,16 @@ var CHESLIDESHOW = (function () {
 			}
 			running = true;
 
-			var nextSlide = slideSelector[currentSlide + 1] === undefined ?
-				0 :  currentSlide + 1,
+			var newSlideIndex = slideSelector[currentSlideIndex + 1] === undefined ?
+				0 :  currentSlideIndex + 1,
 
-				currentSlideSelector = slideSelector[currentSlide],
-				nextSlideSelector = slideSelector[nextSlide];
+				currentSlide = slideSelector[currentSlideIndex],
+				newSlide = slideSelector[newSlideIndex];
 
-			currentSlideSelector.classList.remove("trans-none");
+				indicatorSelector[currentSlideIndex].classList.add('inactive-indicator');
+				indicatorSelector[newSlideIndex].classList.remove('inactive-indicator');
 
-			nextSlideSelector.classList.add("right-position");
-			nextSlideSelector.classList.remove("inactive");
-
-			indicatorSelector[currentSlide].classList.add("inactive-indicator");
-			indicatorSelector[nextSlide].classList.remove("inactive-indicator");
-			
-			setTimeout(function() {
-				nextSlideSelector.classList.add("activating-from-right");
-				currentSlideSelector.classList.add("deactivating-to-left");
-
-				setTimeout(function() {
-					currentSlideSelector.classList.add("inactive");
-					currentSlideSelector.classList.remove("deactivating-to-left");
-					nextSlideSelector.classList.add("trans-none");
-					nextSlideSelector.classList.remove("activating-from-right");
-					nextSlideSelector.classList.remove("right-position");
-					setTimeout(function() {
-						currentSlide = nextSlide;
-						running = false;
-					}, 1);
-			    }, 700);
-			}, 5);
+				animateSlides(newSlide, currentSlide, 'right', newSlideIndex);
 		},
 		prevSlide: function () {
 			if (running) {
@@ -48,37 +76,19 @@ var CHESLIDESHOW = (function () {
 			}
 			
 			running = true;
-			
-			var prevSlide = slideSelector[currentSlide - 1] === undefined ?
-				slideSelector.length - 1 :  currentSlide - 1,
-				prevSlideSelector = slideSelector[prevSlide],
-				currentSlideSelector = slideSelector[currentSlide];
 
 
-			currentSlideSelector.classList.remove("trans-none");
 
-			prevSlideSelector.classList.add("left-position");
-			prevSlideSelector.classList.remove("inactive");
+			var newSlideIndex = slideSelector[currentSlideIndex - 1] === undefined ?
+				3 :  currentSlideIndex - 1,
 
-			indicatorSelector[currentSlide].classList.add("inactive-indicator");
-			indicatorSelector[prevSlide].classList.remove("inactive-indicator");
-			
-			setTimeout(function() {
-				prevSlideSelector.classList.add("activating-from-left");
-				currentSlideSelector.classList.add("deactivating-to-right");
+				currentSlide = slideSelector[currentSlideIndex],
+				newSlide = slideSelector[newSlideIndex];
 
-				setTimeout(function() {
-					currentSlideSelector.classList.add("inactive");
-					currentSlideSelector.classList.remove("deactivating-to-right");
-					prevSlideSelector.classList.add("trans-none");
-					prevSlideSelector.classList.remove("activating-from-left");
-					prevSlideSelector.classList.remove("left-position");
-					setTimeout(function() {
-						currentSlide = prevSlide;
-						running = false;			
-					}, 1);
-			    }, 700);
-			}, 1);
+				indicatorSelector[currentSlideIndex].classList.add('inactive-indicator');
+				indicatorSelector[newSlideIndex].classList.remove('inactive-indicator');
+
+				animateSlides(newSlide, currentSlide, 'left', newSlideIndex);
 		}
 	};
 })();

@@ -1,10 +1,12 @@
 .che-slideshow {
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  height: 300px; }
 
-/* slide styles and transformation */
 .che-slideshow-slide {
-  width: 100%; }
+  width: 100%;
+  top: 0;
+  position: absolute; }
   .che-slideshow-slide .che-slideshow-caption {
     bottom: 1em;
     position: absolute;
@@ -14,13 +16,12 @@
     width: 100%; }
   .che-slideshow-slide.inactive {
     display: none; }
-  .che-slideshow-slide.left-position {
+  .che-slideshow-slide.position-left {
     top: 0;
-    margin-left: -100%;
-    position: absolute; }
-  .che-slideshow-slide.right-position {
+    left: -100%; }
+  .che-slideshow-slide.position-right {
     top: 0;
-    margin-right: -100%;
+    right: -100%;
     position: absolute; }
 
 /* controls */

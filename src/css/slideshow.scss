@@ -2,23 +2,15 @@
 	//border: 1px solid black;
 	overflow: hidden;
 	position: relative;
+
+	//temp
+	height: 300px;
 }
-
-/* slide styles and transformation */
-
-@mixin transform($posOrNeg: '') {
-	$translate-statement: translate( #{$posOrNeg}100%, 0 );
-
-	-webkit-transform: $translate-statement;
-    -moz-transform: $translate-statement;
-    -o-transform: $translate-statement;
-    -ms-transform: $translate-statement;
-    transform: $translate-statement;
-} 
 
 .che-slideshow-slide {
 	width: 100%;
-
+	top: 0;
+	position: absolute;
 	
 
 	.che-slideshow-caption {
@@ -36,15 +28,14 @@
 		display: none;
 	}
 
-	&.left-position {
+	&.position-left {
 		top: 0;
-		margin-left: -100%;
-		position: absolute;
+		left: -100%;
 	}
 
-	&.right-position {
+	&.position-right {
 		top: 0;
-		margin-right: -100%;
+		right: -100%;
 		position: absolute;
 	}
 

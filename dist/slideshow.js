@@ -55,12 +55,12 @@ var CHESLIDESHOW = (function () {
 			//animate one tick according to direction
 			slide.style.left = mode === 'prev' ? ( parseInt(slide.style.left) + 2 ) + "%"
 												: ( parseInt(slide.style.left) - 2 ) + "%";
+			
 			i++;
-
 			if(i >= 50) {
 				stopAnimation();
 			}
-		}, 15);
+		}, 7);
 
 		// clears interval, returns all elements to a nominal state
 		function stopAnimation () {
@@ -72,10 +72,10 @@ var CHESLIDESHOW = (function () {
 		}
 	}
 
+	// sets the container height to the height of slides. height not defined in css. 
 	window.onload = setContainerSize;
 	window.onresize = setContainerSize;
 
-	// sets the container height to the height of slides. height not defined in css. 
 	function setContainerSize() {
 		var container = document.getElementsByClassName('che-slideshow')[0];
 		container.style.height = getComputedStyle(slideSelector[currentSlideIndex]).height;

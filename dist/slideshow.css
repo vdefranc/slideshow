@@ -35,6 +35,8 @@
     left: 0; }
   .slideshow-control.slideshow-right-control {
     right: 0; }
+  .slideshow-control:hover .slideshow-arrow {
+    opacity: 0.7; }
   .slideshow-control .slideshow-left-arrow {
     left: 0;
     height: 60%;
@@ -42,8 +44,6 @@
     opacity: 0.3;
     position: absolute;
     top: 50%; }
-    .slideshow-control .slideshow-left-arrow:hover {
-      opacity: 0.7; }
   .slideshow-control .slideshow-right-arrow {
     right: 0;
     height: 60%;
@@ -51,8 +51,6 @@
     opacity: 0.3;
     position: absolute;
     top: 50%; }
-    .slideshow-control .slideshow-right-arrow:hover {
-      opacity: 0.7; }
 
 /* indicators */
 .slideshow-indicator-container {

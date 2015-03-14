@@ -44,9 +44,6 @@
 	position: absolute;
 	top: 50%;
 
-	&:hover {
-		opacity: 0.7;
-	}
 }
 
 .slideshow-control {
@@ -62,6 +59,12 @@
 	}
 	&.slideshow-right-control {
 		right: 0;
+	}
+
+	&:hover {
+		.slideshow-arrow{
+			opacity: 0.7;
+		}
 	}
 
 	.slideshow-left-arrow { @include arrow( left ); }

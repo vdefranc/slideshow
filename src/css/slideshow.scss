@@ -1,29 +1,3 @@
-/* media query vars */
-
-$tablet: '(max-width:800px)';
-$phone: '(max-width:400px)';
-
-
-body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	margin: 0 auto;
-	max-width: 600px;
-	padding: 1em;
-	width: 60%;
-
-	@media #{$tablet} {
-		width: 80%;
-		border: none;
-	}
-
-	@media #{$phone} {
-		width: 95%;
-		padding: 0;
-	}
-}
-
 .che-slideshow {
 	overflow: hidden;
 	position: relative;

@@ -17,21 +17,6 @@ module.exports = function(grunt) {
 				files: 'src/css/*.scss',
 				tasks: ['sass']
 			},
-	    	
-	    	/*
-	    	files: ['src/js/*.js',
-	      			'index.html'
-	      		],
-	    	tasks: ['jshint', 'jasmine'],
-	     	css: {
-				files: 'src/css/*.scss',
-				tasks: ['sass']
-			},
-			js: {
-				files: 'src/js/*.js',
-				tasks: ['concat']
-			},
-			*/
 			livereload: {
 		        files: [
 		          'index.html',
@@ -58,7 +43,7 @@ module.exports = function(grunt) {
 		sass: {
 			dist: {
 				files: {
-					'dist/slideshow.css' : 'src/css/slideshow.scss'
+					'dist/slideshow.css' : 'src/css/compiled/compiled-sass.scss'
 				}
 			}
 		},
@@ -66,6 +51,10 @@ module.exports = function(grunt) {
 			js: {
 				src: ['src/js/slideshow.js', 'src/js/second.js'],
 				dest: 'dist/slideshow.js'
+			},
+			css: {
+				src: ['src/css/template.scss', 'src/css/!(template)*.scss'],
+				dest: 'src/css/compiled/compiled-sass.scss'
 			}
 		},
 	    open: { //not added to dependencies yet <<<<<<<<<<<<<<<<<<<<<<<<<<

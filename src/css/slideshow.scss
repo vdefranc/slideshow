@@ -1,5 +1,27 @@
+/* media query vars */
+
+$tablet: '(max-width:800px)';
+$phone: '(max-width:400px)';
+
+
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	margin: 0 auto;
+	max-width: 600px;
+	padding: 1em;
+	width: 60%;
+
+	@media #{$tablet} {
+		width: 80%;
+		border: none;
+	}
+
+	@media #{$phone} {
+		width: 95%;
+		padding: 0;
+	}
 }
 
 .che-slideshow {
@@ -14,9 +36,19 @@ body {
 	
 	.che-slideshow-caption {
 		bottom: 1em;
+		font-size: 0.8em;
+		color: #444444;
 		position: absolute;
 		text-align: center;
 		width: 100%;
+
+		@media #{$tablet} {
+			font-size: 0.75em;
+		}
+
+		@media #{$phone} {
+			font-size: 0.6em;
+		}
 	}
 
 	img {
@@ -87,6 +119,10 @@ body {
 	top: -5px;
 	width: 60%;
 	z-index: 15;
+
+	@media #{$tablet} {
+		top: -10px;
+	}
 
 	.slideshow-indicator {
 		background-color: transparent;

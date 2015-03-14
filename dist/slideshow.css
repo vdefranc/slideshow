@@ -1,5 +1,20 @@
+/* media query vars */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 1em;
+  width: 60%; }
+  @media (max-width: 800px) {
+    body {
+      width: 80%;
+      border: none; } }
+  @media (max-width: 400px) {
+    body {
+      width: 95%;
+      padding: 0; } }
 
 .che-slideshow {
   overflow: hidden;
@@ -11,9 +26,17 @@ body {
   position: absolute; }
   .che-slideshow-slide .che-slideshow-caption {
     bottom: 1em;
+    font-size: 0.8em;
+    color: #444444;
     position: absolute;
     text-align: center;
     width: 100%; }
+    @media (max-width: 800px) {
+      .che-slideshow-slide .che-slideshow-caption {
+        font-size: 0.75em; } }
+    @media (max-width: 400px) {
+      .che-slideshow-slide .che-slideshow-caption {
+        font-size: 0.6em; } }
   .che-slideshow-slide img {
     width: 100%; }
   .che-slideshow-slide.inactive {
@@ -66,6 +89,9 @@ body {
   top: -5px;
   width: 60%;
   z-index: 15; }
+  @media (max-width: 800px) {
+    .slideshow-indicator-container {
+      top: -10px; } }
   .slideshow-indicator-container .slideshow-indicator {
     background-color: transparent;
     border: 1px solid #fff;

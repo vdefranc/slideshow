@@ -18,10 +18,10 @@
   			<li class="slideshow-indicator inactive-indicator" >
   			</li>
   		</ol>
-      <div class="slideshow-left-control slideshow-control" onclick="CHESLIDESHOW.prevSlide()">
+      <div class="slideshow-left-control slideshow-control">
     		<img src="images/left-arrow.png" class="slideshow-left-arrow" />
       </div>
-      <div class="slideshow-right-control slideshow-control" onclick="CHESLIDESHOW.nextSlide()">
+      <div class="slideshow-right-control slideshow-control">
     		<img src="images/right-arrow.png" class="slideshow-right-arrow" />
       </div>
   		<div class="che-slideshow-slide">
@@ -49,5 +49,15 @@
   			</div>
   		</div>
   	</div>
+    <script>
+    // add event listeners
+    (function () {
+      var prevArrow = document.getElementsByClassName('slideshow-left-control')[0];
+      var nextArrow = document.getElementsByClassName('slideshow-right-control')[0];
+
+      prevArrow.addEventListener('click', CHESLIDESHOW.prevSlide);
+      nextArrow.addEventListener('click', CHESLIDESHOW.nextSlide);
+    })();
+    </script>
   </body>
 </html>
